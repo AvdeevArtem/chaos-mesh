@@ -52,6 +52,13 @@ spec:
       {{- if .Values.dashboard.hostNetwork }}
       hostNetwork: true
       {{- end }}
+      dnsPolicy: {{ .Values.dashboard.dnsPolicy | default "ClusterFirst" }}
+      {{- if eq .Values.dashboard.dnsPolicy "None" }}
+      {{- with .Values.dashboard.dnsConfig }}
+      dnsConfig:
+{{- toYaml . | nindent 12 }}
+      {{- end }}
+      {{- end }}
       {{- if .Values.dashboard.serviceAccount }}
       serviceAccountName: {{ .Values.dashboard.serviceAccount }}
       {{- end }}

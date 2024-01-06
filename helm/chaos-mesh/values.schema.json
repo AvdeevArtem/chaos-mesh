@@ -59,6 +59,31 @@
                 "hostNetwork": {
                     "type": "boolean"
                 },
+                "dnsPolicy": {
+                    "type": "string"
+                },
+                "dnsConfig": {
+                    "type": "object",
+                    "properties": {
+                        "nameservers": {
+                            "type": "array"
+                        },
+                        "options": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "searches": {
+                            "type": "array"
+                        }
+                    }
+                },
                 "httpPort": {
                     "type": "integer"
                 },
@@ -194,6 +219,31 @@
                 },
                 "hostNetwork": {
                     "type": "boolean"
+                },
+                "dnsPolicy": {
+                    "type": "string"
+                },
+                "dnsConfig": {
+                    "type": "object",
+                    "properties": {
+                        "nameservers": {
+                            "type": "array"
+                        },
+                        "options": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "searches": {
+                            "type": "array"
+                        }
+                    }
                 },
                 "image": {
                     "type": "object",
@@ -390,6 +440,31 @@
                 },
                 "hostNetwork": {
                     "type": "boolean"
+                },
+                "dnsPolicy": {
+                    "type": "string"
+                },
+                "dnsConfig": {
+                    "type": "object",
+                    "properties": {
+                        "nameservers": {
+                            "type": "array"
+                        },
+                        "options": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "searches": {
+                            "type": "array"
+                        }
+                    }
                 },
                 "image": {
                     "type": "object",

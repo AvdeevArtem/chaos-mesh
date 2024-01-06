@@ -48,6 +48,12 @@ spec:
       {{- if .Values.controllerManager.hostNetwork }}
       hostNetwork: true
       {{- end }}
+      dnsPolicy: {{ .Values.controllerManager.dnsPolicy | default "ClusterFirst" }}
+      {{- if eq .Values.controllerManager.dnsPolicy "None" }}
+      {{- with .Values.controllerManager.dnsConfig }}
+      dnsConfig:
+{{- toYaml . | nindent 12 }}
+      {{- end }}
       {{- if .Values.controllerManager.serviceAccount }}
       serviceAccountName: {{ .Values.controllerManager.serviceAccount }}
       {{- end }}

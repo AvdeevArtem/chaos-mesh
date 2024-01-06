@@ -62,6 +62,10 @@ controllerManager:
   hostNetwork: false
   # Allow testing on `hostNetwork` pods. This is Dangerous. Please run only as temporary solution.
   allowHostNetworkTesting: false
+  # Dns Policy type
+  dnsPolicy: ""
+  # dnsConfig specifies the DNS parameters of the pod. Parameters specified here will be merged if dnsPolicy will be None.
+  dnsConfig: {}
   # The serviceAccount for chaos-controller-manager
   serviceAccount: chaos-controller-manager
   # ServiceAccount annotations for chaos-controller-manager
@@ -168,6 +172,10 @@ chaosDaemon:
   env: {}
   # running chaosDaemon on host network
   hostNetwork: false
+  # Dns Policy type
+  dnsPolicy: "Default"
+  # dnsConfig specifies the DNS parameters of the pod. Parameters specified here will be merged if dnsPolicy will be None.
+  dnsConfig: {}
   # configurations about mtls.
   # currently we do not support use specified ca and cert for mtls, it would generate the ca and certs when chaos mesh deploy by helm.
   mtls:
@@ -254,6 +262,10 @@ dashboard:
   securityContext: {}
   # running chaos-dashboard on host network
   hostNetwork: false
+  # Dns Policy type
+  dnsPolicy: ""
+  # dnsConfig specifies the DNS parameters of the pod. Parameters specified here will be merged if dnsPolicy will be None.
+  dnsConfig: {}
   # replicas of chaos-dashboard
   replicaCount: 1
   # Custom priorityClassName for using pod priorities

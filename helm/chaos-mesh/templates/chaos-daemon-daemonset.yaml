@@ -47,6 +47,12 @@ spec:
       {{- if .Values.chaosDaemon.hostNetwork }}
       hostNetwork: true
       {{- end }}
+      dnsPolicy: {{ .Values.chaosDaemon.dnsPolicy | default "ClusterFirst" }}
+      {{- if eq .Values.chaosDaemon.dnsPolicy "None" }}
+      {{- with .Values.chaosDaemon.dnsConfig }}
+      dnsConfig:
+{{- toYaml . | nindent 12 }}
+      {{- end }}
       {{- if .Values.chaosDaemon.serviceAccount }}
       serviceAccountName: {{ .Values.chaosDaemon.serviceAccount }}
       {{- end }}
@@ -176,7 +182,7 @@ spec:
         {{- end }}
       volumes:
         - name: socket-path
-          hostPath: 
+          hostPath:
             path: {{template "chaos-daemon.socket-path" . }}
         - name: sys-path
           hostPath:
